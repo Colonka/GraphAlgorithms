@@ -76,7 +76,7 @@ Being in `src` folder run command `make gcov_report`
 
 ## Documentation
 
-To open library documentation run command `dvi`
+To open library documentation run command `make dvi`
 
 ## App instructions
 
