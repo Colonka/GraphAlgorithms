@@ -44,8 +44,7 @@ An important subtype of graphs are *trees*. \
 
 ### Ways of representing a graph
 
-The main ways of representing graphs are:
-* *an adjacency matrix* is a square matrix whose dimension is equal to the number of vertices in the graph, and in which $`A_{ij}`$ element of the matrix contains information about an edge from vertex $`i`$ to vertex $`j`$. Possible values that $`A_{ij}`$ can have:
+The main ways of representing graphs is: *an adjacency matrix* is a square matrix whose dimension is equal to the number of vertices in the graph, and in which $`A_{ij}`$ element of the matrix contains information about an edge from vertex $`i`$ to vertex $`j`$. Possible values that $`A_{ij}`$ can have:
     + For an unweighted undirected graph:
         - 0 — there is no edge between the vertices;
         - 1 — there is an edge between the vertices.
