@@ -8,12 +8,24 @@ if(NOT CMAKE_CXX_EXTENSIONS)
     set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
 
+# Проверяем наличие системы генерации Ninja
+if(CMAKE_GENERATOR STREQUAL "Ninja")
+    find_program(NINJA_PATH ninja)
+    if(NOT NINJA_PATH)
+        message(FATAL_ERROR "Ninja не установлен или не найден. Установите Ninja для использования этой системы генерации.")
+    endif()
+endif()
+
 #Задааем переменную для покрытия тестами и выключаем тестирование по дефолту
 option(COVERAGE "Покрытие тестами" OFF)
 
-## Проверяем если включено покрытие тестами(gcov), то добавляем флаг компиляции
+# Проверяем включено ли покрытие тестами и установлен ли пакет gcov
 if(COVERAGE)
-add_compile_options("--coverage")
+find_program(GCOV_PATH gcov)
+    if(NOT GCOV_PATH)
+        message(FATAL_ERROR "gcov не найден. Установите gcov для использования покрытия тестами.")
+    endif()
+add_compile_options("--coverage") # добавляем флаг компиляции
 add_link_options("--coverage")
 endif()
 
